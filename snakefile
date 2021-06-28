@@ -18,11 +18,11 @@ rule all:
         #expand(["qc/trimmed/fastqc/{sample}_trimmed_1_fastqc.html"],sample=SAMPLES), 
         #"qc/trimmed/multiqc/multiqc_report.html", 
         #bwa mem + samtools sort + samtools index
-        expand(["data/aligned/{sample}.bam"],sample=SAMPLES), 
-        expand(["data/sorted/{sample}_sorted.bam"],sample=SAMPLES),
-        expand(["data/sorted/{sample}_sorted.bam.bai"],sample=SAMPLES), 
+        #expand(["data/aligned/{sample}.bam"],sample=SAMPLES), 
+        #expand(["data/sorted/{sample}_sorted.bam"],sample=SAMPLES),
+        #expand(["data/sorted/{sample}_sorted.bam.bai"],sample=SAMPLES), 
         #samtools flagstat
-        expand(["data/sorted/{sample}_stats.txt"],sample=SAMPLES), 
+        #expand(["data/sorted/{sample}_stats.txt"],sample=SAMPLES), 
         #build salmon index
         #"data/reference/transcriptome_index/refseq.bin", 
         #run salmon quant
