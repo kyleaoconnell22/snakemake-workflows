@@ -11,12 +11,12 @@ rule all:
     input:
         #comment out any file here that you don't want the pipeline to run to
         #raw fastqc + multiqc
-        "qc/raw/multiqc/multiqc_report.html",
+        #"qc/raw/multiqc/multiqc_report.html",
         #trimmomatic
         expand(["data/trimmed/{sample}_trimmed_1.fastq"],sample=SAMPLES),
         #trimmed fastqc + multiqc
-        expand(["qc/trimmed/fastqc/{sample}_trimmed_1_fastqc.html"],sample=SAMPLES), 
-        "qc/trimmed/multiqc/multiqc_report.html", 
+        #expand(["qc/trimmed/fastqc/{sample}_trimmed_1_fastqc.html"],sample=SAMPLES), 
+        #"qc/trimmed/multiqc/multiqc_report.html", 
         #bwa mem + samtools sort + samtools index
         expand(["data/aligned/{sample}.bam"],sample=SAMPLES), 
         expand(["data/sorted/{sample}_sorted.bam"],sample=SAMPLES),
@@ -26,7 +26,7 @@ rule all:
         #build salmon index
         #"data/reference/transcriptome_index/refseq.bin", 
         #run salmon quant
-        expand(["data/salmon/{sample}/quant.sf"],sample=SAMPLES)
+        #expand(["data/salmon/{sample}/quant.sf"],sample=SAMPLES)
 
 rule fastqc_raw:
     input:
